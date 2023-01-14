@@ -1,22 +1,30 @@
-// get all users
+const router = require("express").Router();
 
-// get user by id
+const {
+  getAllUsers,
+  getUserById,
+  createUser,
+  updateUserById,
+  deleteUserById,
+} = require("../../controllers/user-control");
+router
+  .route("/")
+  // get all users
+  .get(getAllUsers)
+  // create new user
+  .post(createUser);
 
-// create new user
-    // example data
-        // {
-        //     "username": "lernantino",
-        //     "email": "lernantino@gmail.com"
-        //   }
-
-// update user by id
-
-// delete user by id
+router
+  .route("/:id")
+  // get user by id
+  .get(getUserById)
+  // update user by id
+  .put(updateUserById)
+  // delete user by id
+  .delete(deleteUserById);
 
 // add friend to user's friend list
 
 // delete friend from user's friend list
 
-// create reaction to thought that is stored in id field
-
-// delete reaction by reactionId
+module.exports = router;

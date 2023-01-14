@@ -13,3 +13,7 @@
 // update thought by id
 
 // delete thought by id
+
+// create reaction to thought that is stored in id field
+
+// delete reaction by reactionId
