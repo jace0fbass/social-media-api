@@ -7,6 +7,7 @@ const {
   updateUserById,
   deleteUserById,
 } = require("../../controllers/user-control");
+
 router
   .route("/")
   // get all users

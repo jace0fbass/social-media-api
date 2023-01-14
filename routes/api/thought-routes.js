@@ -1,19 +1,37 @@
-// get all thoughts
+const router = require("express").Router();
 
-// get thought by id
+const {
+  getAllThoughts,
+  getThoughtById,
+  createThought,
+  updateThoughtById,
+  deleteThoughtById,
+  createReaction,
+  deleteReactionById,
+} = require("../../controllers/thought-control");
 
-// create thought and push it to user's thoughts array
-    // example data
-        // {
-        //     "thoughtText": "Here's a cool thought...",
-        //     "username": "lernantino",
-        //     "userId": "5edff358a0fcb779aa7b118b"
-        // }
+router
+  .route("/")
+  // get all thoughts
+  .get(getAllThoughts)
+  // create thought
+  .post(createThought);
 
-// update thought by id
+router
+  .route("/:id")
+  // get thought by id
+  .get(getThoughtById)
+  // update thought by id
+  .put(updateThoughtById)
+  // delete thought by id
+  .delete(deleteThoughtById);
 
-// delete thought by id
+router
+  .route("/:thoughtId/reactions")
+  // create reaction to thought that is stored in id field
+  .post(createReaction);
 
-// create reaction to thought that is stored in id field
-
-// delete reaction by reactionId
+router
+  .route("/:thoughtId/reactions/:reactionId")
+  // delete reaction by reactionId
+  .delete(deleteReactionById);
