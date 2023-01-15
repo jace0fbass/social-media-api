@@ -17,7 +17,7 @@ router.put("/update/:id", userControl.update);
 router.delete("/delete/:id", userControl.delete);
 
 // // add friend to user's friend list
-router.post("/:userId/friends/:friendsId", userControl.addFriend);
+router.post("/:userId/friends/:friendId", userControl.addFriend);
 
 // // delete friend from user's friend list
 router.delete("/:userId/friends/:friendId", userControl.deleteFriend);
