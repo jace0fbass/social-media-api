@@ -5,21 +5,21 @@ const userControl = require("../controllers/user-control");
 router.get("/", userControl.find);
 
 // get user by id
-// router.get("/:id", userControl.findOne);
+router.get("/:id", userControl.findOne);
 
 // // create new user
-// router.post("/", userControl.create);
+router.post("/", userControl.create);
 
 // // update user by id
-// router.put("/update/:id", userControl.update);
+router.put("/update/:id", userControl.update);
 
 // // delete user by id
-// router.delete("/delete/:id", userControl.delete);
+router.delete("/delete/:id", userControl.delete);
 
 // // add friend to user's friend list
-// router.post("/:userId/friends/:friendsId", userControl.addFriend);
+router.post("/:userId/friends/:friendsId", userControl.addFriend);
 
 // // delete friend from user's friend list
-// router.delete("/:userId/friends/:friendId", userControl.deleteFriend);
+router.delete("/:userId/friends/:friendId", userControl.deleteFriend);
 
 module.exports = router;
