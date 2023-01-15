@@ -1,5 +1,5 @@
-const { User, Thought } = require("../models");
-const { findByIdAndDelete } = require("../models/User");
+const { User } = require("../models");
+
 module.exports = {
   // get all users
   find: async function (req, res) {
@@ -28,7 +28,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // update user ///////
+  // update user
   update: async function (req, res) {
     try {
       const result = await User.findByIdAndUpdate(req.params.id, req.body, {
@@ -43,6 +43,7 @@ module.exports = {
   delete: async function (req, res) {
     try {
       const result = await User.findByIdAndDelete(req.params.id);
+      res.json(result)
     } catch (err) {
       res.status(500).json(err);
     }
