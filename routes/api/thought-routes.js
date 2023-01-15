@@ -1,37 +1,28 @@
 const router = require("express").Router();
+const thoughtControl = require("../../controllers/thought-control");
 
-const {
-  getAllThoughts,
-  getThoughtById,
-  createThought,
-  updateThoughtById,
-  deleteThoughtById,
-  createReaction,
-  deleteReactionById,
-} = require("../../controllers/thought-control");
+// get all thoughts
+router.get("/", thoughtControl.find);
 
-router
-  .route("/")
-  // get all thoughts
-  .get(getAllThoughts)
-  // create thought
-  .post(createThought);
+// get thought by id
+router.get("/:id", thoughtControl.findOne);
 
-router
-  .route("/:id")
-  // get thought by id
-  .get(getThoughtById)
-  // update thought by id
-  .put(updateThoughtById)
-  // delete thought by id
-  .delete(deleteThoughtById);
+// create thought
+router.post("/", thoughtControl.create);
 
-router
-  .route("/:thoughtId/reactions")
-  // create reaction to thought that is stored in id field
-  .post(createReaction);
+// update thought by id
+router.put("/update/:id", thoughtControl.update);
 
-router
-  .route("/:thoughtId/reactions/:reactionId")
-  // delete reaction by reactionId
-  .delete(deleteReactionById);
+// delete thought by id
+router.delete("/delete/:id", thoughtControl.delete);
+
+// create reaction to thought that is stored in id field
+router.post("/:thoughtId/reactions", thoughtControl.createReaction);
+
+// delete reaction by reactionId
+router.delete(
+  "/:thoughtId/reactions/:reactionsId",
+  thoughtControl.deleteReaction
+);
+
+module.exports = router;
