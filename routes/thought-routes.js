@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const thoughtControl = require("../controllers/thought-control");
 
-// // get all thoughts
+// get all thoughts
 // router.get("/", thoughtControl.find);
 
 // // get thought by id

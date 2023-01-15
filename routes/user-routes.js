@@ -2,9 +2,9 @@ const router = require("express").Router();
 const userControl = require("../controllers/user-control");
 
 // get all users
-// router.get("/", userControl.find);
+router.get("/", userControl.find);
 
-// // get user by id
+// get user by id
 // router.get("/:id", userControl.findOne);
 
 // // create new user
