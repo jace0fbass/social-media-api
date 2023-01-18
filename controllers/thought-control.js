@@ -1,7 +1,6 @@
 const { Thought, User } = require("../models");
 
 module.exports = {
-  // get all thoughts
   find: async function (req, res) {
     try {
       const result = await Thought.find();
@@ -10,7 +9,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // get one thought
+
   findOne: async function (req, res) {
     try {
       const result = await Thought.findById({ _id: req.params.id });
@@ -20,22 +19,24 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // create thought
+
   create: async function (req, res) {
     try {
       const result = await Thought.create(req.body);
-      await User.findOneAndUpdate({
-        username: req.body.username
-      },
-      {
-        $push: {thoughts: result.id}
-      });
-      res.json(result)
+      await User.findOneAndUpdate(
+        {
+          username: req.body.username,
+        },
+        {
+          $push: { thoughts: result.id },
+        }
+      );
+      res.json(result);
     } catch (err) {
       res.status(500).json(err);
     }
   },
-  // update thought
+
   update: async function (req, res) {
     try {
       const result = await Thought.findByIdAndUpdate(req.params.id, req.body, {
@@ -46,7 +47,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // delete thought
+
   delete: async function (req, res) {
     try {
       const result = await Thought.findByIdAndDelete(req.params.id);
@@ -55,7 +56,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // add reaction
+
   createReaction: async function (req, res) {
     try {
       const result = await Thought.findByIdAndUpdate(
@@ -70,7 +71,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // delete reaction
+
   deleteReaction: async function (req, res) {
     try {
       const result = await Thought.findByIdAndUpdate(
