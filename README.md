@@ -1,7 +1,7 @@
 # 18 NoSQL: Social Network API
 
 ## Walkthrough
-View walkthrough video <a href="">here</a>.
+View walkthrough video <a href="https://drive.google.com/file/d/13AYwzUPTPAZot6QWLF0zmEaPjbcwHAUZ/view">here</a>.
 
 ## Description
 In this challenge I have built an API for a social media network using <a href="https://www.npmjs.com/package/express">Express</a>, <a href="https://www.npmjs.com/package/mongoose">Mongoose</a>, and <a href="https://www.npmjs.com/package/dayjs">DayJS</a>. Users can add and delete friends as well as create, update, and delete thoughts that friends can react to. 
